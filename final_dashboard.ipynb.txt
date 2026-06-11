@@ -1,0 +1,382 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d8a62563-914f-437d-a7bf-4ce4e43411b5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "df = pd.read_excel(\"ML_DATASET.FINAL.csv.xlsx\")\n",
+    "\n",
+    "print(df.shape)\n",
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d3300132-e18a-419d-8356-156d1110e67b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "df = pd.read_excel(\"ML_DATASET.FINAL.csv.xlsx\")\n",
+    "\n",
+    "print(df.shape)\n",
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6fc10fbd-0b00-475b-8aa6-f16d175d223f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "code = '''\n",
+    "import streamlit as st\n",
+    "import pandas as pd\n",
+    "\n",
+    "st.title(\"Buyer Segmentation Dashboard\")\n",
+    "\n",
+    "df = pd.read_excel(\"ML_DATASET.FINAL.csv.xlsx\")\n",
+    "\n",
+    "st.subheader(\"Dataset Preview\")\n",
+    "st.dataframe(df.head())\n",
+    "\n",
+    "st.subheader(\"Dataset Information\")\n",
+    "st.write(\"Rows:\", df.shape[0])\n",
+    "st.write(\"Columns:\", df.shape[1])\n",
+    "'''\n",
+    "\n",
+    "with open(\"app.py\", \"w\") as f:\n",
+    "    f.write(code)\n",
+    "\n",
+    "print(\"app.py created successfully\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "c56369a4-438d-4f21-a7d3-48a1ea143c25",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(7305, 14)\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>listing_id</th>\n",
+       "      <th>tower_number</th>\n",
+       "      <th>transaction_date</th>\n",
+       "      <th>unit_category</th>\n",
+       "      <th>unit_number</th>\n",
+       "      <th>floor_area_sqft</th>\n",
+       "      <th>sale_price</th>\n",
+       "      <th>listing_status</th>\n",
+       "      <th>client_ref</th>\n",
+       "      <th>client_type</th>\n",
+       "      <th>country</th>\n",
+       "      <th>gender</th>\n",
+       "      <th>acquisition_purpose</th>\n",
+       "      <th>loan_applied</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1012</td>\n",
+       "      <td>1</td>\n",
+       "      <td>2024-01-01</td>\n",
+       "      <td>Apartment</td>\n",
+       "      <td>12</td>\n",
+       "      <td>1160.36</td>\n",
+       "      <td>300385.62</td>\n",
+       "      <td>Sold</td>\n",
+       "      <td>C0027</td>\n",
+       "      <td>Individual</td>\n",
+       "      <td>USA</td>\n",
+       "      <td>M</td>\n",
+       "      <td>Home</td>\n",
+       "      <td>Yes</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1015</td>\n",
+       "      <td>1</td>\n",
+       "      <td>2024-01-01</td>\n",
+       "      <td>Apartment</td>\n",
+       "      <td>15</td>\n",
+       "      <td>782.25</td>\n",
+       "      <td>208930.81</td>\n",
+       "      <td>Sold</td>\n",
+       "      <td>C0097</td>\n",
+       "      <td>Individual</td>\n",
+       "      <td>USA</td>\n",
+       "      <td>M</td>\n",
+       "      <td>Home</td>\n",
+       "      <td>Yes</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>1021</td>\n",
+       "      <td>1</td>\n",
+       "      <td>2024-01-01</td>\n",
+       "      <td>Apartment</td>\n",
+       "      <td>21</td>\n",
+       "      <td>756.21</td>\n",
+       "      <td>218585.92</td>\n",
+       "      <td>Sold</td>\n",
+       "      <td>C0113</td>\n",
+       "      <td>Individual</td>\n",
+       "      <td>USA</td>\n",
+       "      <td>M</td>\n",
+       "      <td>Investment</td>\n",
+       "      <td>No</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>1030</td>\n",
+       "      <td>1</td>\n",
+       "      <td>2024-01-01</td>\n",
+       "      <td>Apartment</td>\n",
+       "      <td>30</td>\n",
+       "      <td>743.09</td>\n",
+       "      <td>246172.68</td>\n",
+       "      <td>Sold</td>\n",
+       "      <td>C0141</td>\n",
+       "      <td>Individual</td>\n",
+       "      <td>USA</td>\n",
+       "      <td>F</td>\n",
+       "      <td>Home</td>\n",
+       "      <td>No</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>2016</td>\n",
+       "      <td>2</td>\n",
+       "      <td>2024-01-01</td>\n",
+       "      <td>Apartment</td>\n",
+       "      <td>16</td>\n",
+       "      <td>701.66</td>\n",
+       "      <td>212265.67</td>\n",
+       "      <td>Sold</td>\n",
+       "      <td>C0146</td>\n",
+       "      <td>Individual</td>\n",
+       "      <td>USA</td>\n",
+       "      <td>M</td>\n",
+       "      <td>Home</td>\n",
+       "      <td>No</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   listing_id  tower_number transaction_date unit_category  unit_number  \\\n",
+       "0        1012             1       2024-01-01     Apartment           12   \n",
+       "1        1015             1       2024-01-01     Apartment           15   \n",
+       "2        1021             1       2024-01-01     Apartment           21   \n",
+       "3        1030             1       2024-01-01     Apartment           30   \n",
+       "4        2016             2       2024-01-01     Apartment           16   \n",
+       "\n",
+       "   floor_area_sqft  sale_price listing_status client_ref client_type country  \\\n",
+       "0          1160.36   300385.62           Sold      C0027  Individual     USA   \n",
+       "1           782.25   208930.81           Sold      C0097  Individual     USA   \n",
+       "2           756.21   218585.92           Sold      C0113  Individual     USA   \n",
+       "3           743.09   246172.68           Sold      C0141  Individual     USA   \n",
+       "4           701.66   212265.67           Sold      C0146  Individual     USA   \n",
+       "\n",
+       "  gender acquisition_purpose loan_applied  \n",
+       "0      M                Home          Yes  \n",
+       "1      M                Home          Yes  \n",
+       "2      M          Investment           No  \n",
+       "3      F                Home           No  \n",
+       "4      M                Home           No  "
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "df = pd.read_excel(\"ML_DATASET.FINAL.csv.xlsx\")\n",
+    "\n",
+    "print(df.shape)\n",
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "0de54ee7-ac62-4a03-9c3a-a4fbc1110497",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "app.py created successfully\n"
+     ]
+    }
+   ],
+   "source": [
+    "code = '''\n",
+    "import streamlit as st\n",
+    "import pandas as pd\n",
+    "\n",
+    "st.title(\"Buyer Segmentation Dashboard\")\n",
+    "\n",
+    "df = pd.read_excel(\"ML_DATASET.FINAL.csv.xlsx\")\n",
+    "\n",
+    "st.subheader(\"Dataset Preview\")\n",
+    "st.dataframe(df.head())\n",
+    "\n",
+    "st.subheader(\"Dataset Information\")\n",
+    "st.write(\"Rows:\", df.shape[0])\n",
+    "st.write(\"Columns:\", df.shape[1])\n",
+    "'''\n",
+    "\n",
+    "with open(\"app.py\", \"w\") as f:\n",
+    "    f.write(code)\n",
+    "\n",
+    "print(\"app.py created successfully\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "198063c9-c358-4817-ba59-d6877b8895ee",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['.ipynb_checkpoints', '.ipython', '.jupyter', '.matplotlib', '.ms-ad', '.python_history', '.streamlit', 'app.py', 'AppData', 'Application Data', 'buyer-segmentation.ipynb', 'Buyer_Segmentation', 'Buyer_Segmentation.ipynb', 'Contacts', 'Cookies', 'CrossDevice', 'dashboard.ipynb', 'Documents', 'Downloads', 'Favorites', 'final_dataset.csv.xlsx', 'Links', 'Local Settings', 'ML_DATASET.FINAL.csv.xlsx', 'My Documents', 'NetHood', 'NTUSER.DAT', 'ntuser.dat.LOG1', 'ntuser.dat.LOG2', 'NTUSER.DAT{84adf184-e206-11ef-af22-d886de60aa9d}.TM.blf', 'NTUSER.DAT{84adf184-e206-11ef-af22-d886de60aa9d}.TM.blf.cnpf', 'NTUSER.DAT{84adf184-e206-11ef-af22-d886de60aa9d}.TMContainer00000000000000000001.regtrans-ms', 'NTUSER.DAT{84adf184-e206-11ef-af22-d886de60aa9d}.TMContainer00000000000000000001.regtrans-ms.cnpf', 'NTUSER.DAT{84adf184-e206-11ef-af22-d886de60aa9d}.TMContainer00000000000000000002.regtrans-ms', 'NTUSER.DAT{84adf184-e206-11ef-af22-d886de60aa9d}.TMContainer00000000000000000002.regtrans-ms.cnpf', 'ntuser.ini', 'OneDrive', 'PrintHood', 'Recent', 'Saved Games', 'Searches', 'SendTo', 'Start Menu', 'Templates', 'Untitled.ipynb', 'Untitled1.ipynb', 'Untitled2.ipynb', 'Untitled3.ipynb', 'Untitled4.ipynb', 'Untitled5.ipynb', 'Untitled6.ipynb', 'Untitled7.ipynb', 'Untitled8.ipynb']\n"
+     ]
+    }
+   ],
+   "source": [
+    "import os\n",
+    "print(os.listdir())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "973a42b0-7b34-434b-9b1f-8ced7e7273e9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "import streamlit as st\n",
+      "import pandas as pd\n",
+      "\n",
+      "st.title(\"Buyer Segmentation Dashboard\")\n",
+      "\n",
+      "df = pd.read_excel(\"ML_DATASET.FINAL.csv.xlsx\")\n",
+      "\n",
+      "st.subheader(\"Dataset Preview\")\n",
+      "st.dataframe(df.head())\n",
+      "\n",
+      "st.subheader(\"Dataset Information\")\n",
+      "st.write(\"Rows:\", df.shape[0])\n",
+      "st.write(\"Columns:\", df.shape[1])\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "with open(\"app.py\", \"r\") as f:\n",
+    "    print(f.read())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "32777314-05f5-49dc-a781-58162a39a5ab",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Dataset loaded successfully\n",
+      "(7305, 14)\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "df = pd.read_excel(\"ML_DATASET.FINAL.csv.xlsx\")\n",
+    "\n",
+    "print(\"Dataset loaded successfully\")\n",
+    "print(df.shape)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c5cfeb5e-d163-4152-8c9d-ac13f83eaa6d",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
