@@ -9,10 +9,7 @@ The dataset contains information about buyers including demographic and purchasi
  Technologies Used
 - Python
 - Pandas
-- NumPy
-- Scikit-Learn
 - Streamlit
-- Matplotlib
 
 Machine Learning Technique
 Customer Segmentation using Clustering.
