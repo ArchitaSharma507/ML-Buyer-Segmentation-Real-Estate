@@ -4,7 +4,7 @@ import pandas as pd
 st.title("Buyer Segmentation Dashboard")
 
 # Load data
-df = pd.read_excel("ML_DATASET.FINAL.csv")
+df = pd.read_excel("ML_DATASET.FINAL.csv.xlsx")
 
 st.subheader("Dataset Preview")
 st.dataframe(df.head())
